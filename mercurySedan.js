@@ -29,7 +29,8 @@ class Car extends Vehicle {
     }
 
     loadPassenger(num) {
-        num++;
+        this.passengers += num;
+        if (this.passengers > this.maximumPassengers) this.passengers = this.maximumPassengers;
     }
 
     start() {
