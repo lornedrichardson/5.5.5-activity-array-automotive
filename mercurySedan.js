@@ -29,8 +29,10 @@ class Car extends Vehicle {
     }
 
     loadPassenger(num) {
-        this.passengers += num;
-        if (this.passengers > this.maximumPassengers) this.passengers = this.maximumPassengers;
+        if (this.passengers <= this.maximumPassengers - num) this.passengers += num;
+        else if (this.passengers < this.maximumPassengers) console.log(`The ${this.make} ${this.model} does not have enough space for all passengers.`);
+        else console.log(`The ${this.make} ${this.model} is full.`)
+        return this.passengers;
     }
 
     start() {
@@ -39,8 +41,8 @@ class Car extends Vehicle {
     }
 
     scheduleService(mileage) {
-        if (this.mileage > 30000) return this.timeForService = true;
-        return this.timeForService = false;
+        if (this.mileage > 30000) this.timeForService = true;
+        return this.timeForService;
     }
 }
 
@@ -57,9 +59,11 @@ class Car extends Vehicle {
 //TO DO: Creating Instances and Testing Them
 
 //You can use the same instance "v" of the Vehicle class above for the base class.
+let newCar = new Car('Mercury', 'A85', '2023', 'black', '2641');
 
+newCar.loadPassenger(5);
+newCar.start();
+newCar.scheduleService(5000);
 
-
-
-
+console.log(newCar);
 //Create at least two new instances of the Car class and test them here:
