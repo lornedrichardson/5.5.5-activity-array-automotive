@@ -25,7 +25,7 @@ class Car extends Vehicle {
         this.numberOfWheels = 4;
         this.maximumSpeed = 160;
         this.fuel = 10;
-        this.scheduleService = false;
+        this.timeForService = false;
     }
 
     loadPassenger(num) {
@@ -39,8 +39,8 @@ class Car extends Vehicle {
     }
 
     scheduleService(mileage) {
-        if (this.mileage > 30000) return this.timeForMaintenance = true;
-        return this.timeForMaintenance = false;
+        if (this.mileage > 30000) return this.timeForService = true;
+        return this.timeForService = false;
     }
 }
 
